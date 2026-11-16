@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>拾味手帖 Hearth & Table — 職人麵食與日常料理雜誌</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600&family=Noto+Serif+TC:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand" aria-label="拾味手帖首頁">
+        <span class="brand-zh">拾味手帖</span>
+        <span class="brand-en">HEARTH &amp; TABLE</span>
+      </a>
+      <nav class="site-nav" aria-label="主導覽列">
+        <a href="#featured">本週精選</a>
+        <a href="#recipes">食譜目錄</a>
+        <a href="#philosophy">料理手記</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Featured Hero Section -->
+    <section id="featured" class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-media">
+          <div class="hero-image-frame">
+            <img src="images/tonkotsu-ramen.jpg" alt="濃郁蒜香豚骨叉燒拉麵" loading="eager">
+          </div>
+          <span class="hero-caption">FIG. 01 — 職人級的深夜拉麵湯頭</span>
+        </div>
+        <div class="hero-content">
+          <div class="issue-tag">VOL. 14 · 本週麵食精選</div>
+          <h1 class="hero-title">濃郁蒜香<br>豚骨叉燒拉麵</h1>
+          <p class="hero-excerpt">
+            以焦香黑蒜油點綴乳白醇厚的豚骨湯底，搭配低溫慢滷的炙燒叉燒、半熟溏心蛋與彈牙細拉麵。在家也能用精準的計時與火候，端出一碗撫慰身心的職人拉麵。
+          </p>
+          <div class="hero-meta">
+            <span class="meta-pill">⏱ 75 分鐘</span>
+            <span class="meta-pill">✦ 進階料理</span>
+            <span class="meta-pill">🍜 2 人份</span>
+          </div>
+          <button type="button" class="btn-primary" id="hero-open-btn" data-recipe-id="tonkotsu-garlic-ramen">
+            閱讀完整食譜 <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recipe Index & Filters -->
+    <section id="recipes" class="recipes-section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow">NOODLE RECIPE INDEX</span>
+            <h2 class="section-title">麵食食譜目錄</h2>
+          </div>
+          <p class="section-subtitle">涵蓋泡麵創意、日式拉麵、家常拌麵與義式經典，點擊即可換算份量與啟動煮麵計時。</p>
+        </div>
+
+        <!-- Search & Filter Controls -->
+        <div class="filter-panel">
+          <div class="search-row">
+            <div class="search-input-wrap">
+              <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <circle cx="11" cy="11" r="7"></circle>
+                <path d="M20 20l-3.5-3.5"></path>
+              </svg>
+              <input
+                type="search"
+                id="search-input"
+                placeholder="搜尋麵食名稱、關鍵字或食材（例如：豚骨、起司、肉燥、培根）..."
+                aria-label="搜尋麵食或食材"
+              >
+              <button type="button" id="clear-search-btn" class="clear-search-btn hidden" aria-label="清除搜尋">✕</button>
+            </div>
+
+            <div class="select-filters">
+              <label class="select-wrap">
+                <span class="sr-only">料理難度</span>
+                <select id="difficulty-filter" aria-label="料理難度篩選">
+                  <option value="all">全部難度</option>
+                  <option value="新手友善">新手友善</option>
+                  <option value="進階料理">進階料理</option>
+                </select>
+              </label>
+
+              <label class="select-wrap">
+                <span class="sr-only">烹飪時間</span>
+                <select id="time-filter" aria-label="烹飪時間篩選">
+                  <option value="all">不限時間</option>
+                  <option value="quick">30 分鐘內</option>
+                  <option value="medium">30–60 分鐘</option>
+                  <option value="long">60 分鐘以上</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <div class="category-pills" role="tablist" aria-label="麵食分類">
+            <button type="button" class="pill active" data-category="all" role="tab" aria-selected="true">全部麵食</button>
+            <button type="button" class="pill" data-category="泡麵" role="tab" aria-selected="false">泡麵</button>
+            <button type="button" class="pill" data-category="拉麵" role="tab" aria-selected="false">拉麵</button>
+            <button type="button" class="pill" data-category="家常麵" role="tab" aria-selected="false">家常麵</button>
+            <button type="button" class="pill" data-category="義大利麵" role="tab" aria-selected="false">義大利麵</button>
+            <button type="button" class="pill" data-category="涼麵與拌麵" role="tab" aria-selected="false">涼麵與拌麵</button>
+          </div>
+
+          <div class="results-bar">
+            <span id="results-count">顯示 6 道食譜</span>
+            <button type="button" id="reset-filters-btn" class="reset-link hidden">重設所有篩選</button>
+          </div>
+        </div>
+
+        <!-- Recipe Cards Grid -->
+        <div id="recipe-grid" class="recipe-grid" aria-live="polite">
+          <!-- Rendered by app.js -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="empty-state" class="empty-state hidden">
+          <img src="images/722302780_17971645977109557_284416666364841576_n.jpg" alt="找不到麵食的震驚貓咪" class="empty-cat-img">
+          <h3>找不到符合條件的食譜</h3>
+          <p>試著換個食材關鍵字，或放寬時間與難度篩選條件。</p>
+          <button type="button" id="empty-reset-btn" class="btn-secondary">顯示全部食譜</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Editorial Philosophy Section -->
+    <section id="philosophy" class="philosophy-section">
+      <div class="container">
+        <div class="philosophy-card">
+          <div class="philosophy-header">
+            <div>
+              <span class="section-eyebrow">CULINARY NOTES</span>
+              <h2 class="section-title">為日常下廚而設計的手帖</h2>
+            </div>
+            <figure class="chef-cat-card">
+              <img src="images/cooking.gif" alt="戴著廚師帽努力料理的貓主廚" loading="lazy">
+              <figcaption>CHEF ON DUTY · 貓主廚開煮中</figcaption>
+            </figure>
+          </div>
+          <div class="philosophy-grid">
+            <div class="philosophy-item">
+              <span class="item-num">01</span>
+              <h3>彈性份量換算</h3>
+              <p>無論是一人獨享的深夜晚餐，還是週末六人的朋友聚會，只需輕點加減號，所有食材比例立即精準換算。</p>
+            </div>
+            <div class="philosophy-item">
+              <span class="item-num">02</span>
+              <h3>備料與步驟勾選</h3>
+              <p>在流理台前不再手忙腳亂。逐項勾選已備妥的食材與完成的步驟，讓烹飪節奏從容而優雅。</p>
+            </div>
+            <div class="philosophy-item">
+              <span class="item-num">03</span>
+              <h3>隨行步驟計時器</h3>
+              <p>需要燉煮、烘烤或靜置的關鍵步驟皆內建一鍵計時，時間一到將以柔和鈴聲提醒您。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-zh">拾味手帖</span>
+        <span class="footer-copy">在煙火氣裡，拾起生活的溫度。</span>
+      </div>
+      <div class="footer-tasters">
+        <img src="images/722302780_17971645977109557_284416666364841576_n.jpg" alt="試吃員貓咪" loading="lazy">
+        <span>試吃員已就位 · Hearth &amp; Table</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Recipe Detail Modal -->
+  <div id="recipe-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-container">
+      <button type="button" id="modal-close-btn" class="modal-close" aria-label="關閉食譜視窗">✕</button>
+
+      <div class="modal-scroll-area" id="modal-scroll-area">
+        <!-- Modal Hero -->
+        <div class="modal-hero">
+          <div class="modal-hero-img-wrap">
+            <img id="modal-img" src="" alt="">
+          </div>
+          <div class="modal-hero-info">
+            <span id="modal-category" class="modal-category-tag"></span>
+            <h2 id="modal-title" class="modal-title"></h2>
+            <p id="modal-story" class="modal-story"></p>
+            <div class="modal-specs">
+              <div class="spec-item">
+                <span class="spec-label">總時間</span>
+                <span id="modal-time" class="spec-value"></span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">難度</span>
+                <span id="modal-difficulty" class="spec-value"></span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">基準份量</span>
+                <span id="modal-base-servings" class="spec-value"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Two-Column Body -->
+        <div class="modal-body-grid">
+          <!-- Left: Ingredients & Scaler -->
+          <aside class="ingredients-panel">
+            <div class="panel-header">
+              <h3>準備食材</h3>
+              <span id="ingredient-progress" class="progress-badge">0 / 0</span>
+            </div>
+
+            <div class="scaler-box">
+              <span class="scaler-label">份數調整</span>
+              <div class="scaler-controls">
+                <button type="button" id="servings-dec" class="scaler-btn" aria-label="減少份數">−</button>
+                <span id="servings-display" class="servings-display">4 人份</span>
+                <button type="button" id="servings-inc" class="scaler-btn" aria-label="增加份數">+</button>
+              </div>
+              <button type="button" id="servings-reset" class="scaler-reset hidden">重設</button>
+            </div>
+
+            <ul id="modal-ingredients" class="ingredients-list">
+              <!-- Rendered by app.js -->
+            </ul>
+          </aside>
+
+          <!-- Right: Steps & Timers -->
+          <div class="steps-panel">
+            <div class="panel-header">
+              <h3>料理步驟</h3>
+              <span id="step-progress" class="progress-badge">0 / 0 完成</span>
+            </div>
+
+            <ol id="modal-steps" class="steps-list">
+              <!-- Rendered by app.js -->
+            </ol>
+
+            <div id="modal-tip-box" class="chef-tip-box">
+              <div class="tip-title">✦ 主廚小叮嚀</div>
+              <p id="modal-tip-text"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Kitchen Timer Widget -->
+  <div id="floating-timer" class="floating-timer hidden" role="region" aria-label="烹飪計時器">
+    <div class="timer-header">
+      <span class="timer-badge">⏱ 步驟計時器</span>
+      <button type="button" id="timer-close-btn" class="timer-close" aria-label="關閉計時器">✕</button>
+    </div>
+    <div id="timer-label" class="timer-step-label">小火慢燉</div>
+    <div id="timer-display" class="timer-countdown">00:00</div>
+    <div class="timer-controls">
+      <button type="button" id="timer-toggle-btn" class="timer-btn primary">暫停</button>
+      <button type="button" id="timer-add-min-btn" class="timer-btn">+1 分</button>
+      <button type="button" id="timer-reset-btn" class="timer-btn">重設</button>
+    </div>
+  </div>
+
+  <script src="recipes.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
